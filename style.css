@@ -30,18 +30,6 @@ body .page-top {
   z-index: 10;
 }
 
-/* ===ラッパー=== */
-.wrapper {
-  width: 80％;
-  margin: 0 auto;
-}
-
-@media screen and (max-width: 599px) {
-  .wrapper {
-    width: auto;
-  }
-}
-
 /* ===見出し縦=== */
 .title.tate {
   width: 100px;
@@ -103,17 +91,6 @@ body .page-top {
   background-image: url("img/2025892_m.jpg");
   background-size: cover;
   position: relative;
-}
-
-.firstview:before {
-  content: "";
-  background-color: rgba(255, 255, 255, 0.1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 20;
 }
 
 .firstview .firstview_title {
@@ -237,8 +214,9 @@ header nav ul li a {
   header nav ul {
     width: 100%;
     padding-left: 0;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 
@@ -498,26 +476,47 @@ header nav ul li a {
   margin-bottom: 20px;
 }
 
-.mv img {
+.mv li .mv_video {
+  width: auto;
+  position: relative;
+}
+
+.mv li .mv_video video {
+  width: 100%;
+}
+
+.mv li .mv_video .video-btn {
+  width: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  /*コントローラー分下部に余白を*/
+  cursor: pointer;
+}
+
+.mv li img {
   width: 100%;
   cursor: pointer;
 }
 
-.mv .mv_content {
+.mv li .mv_content {
   background-color: #fff;
 }
 
-.mv .mv_content h3 {
+.mv li .mv_content h3 {
   font-size: 25px;
   margin-top: 0;
   font-weight: normal;
 }
 
-.mv .mv_content p {
+.mv li .mv_content p {
   font-size: 14px;
 }
 
-.mv .mv_content .card_number {
+.mv li .mv_content .card_number {
   font-size: 22px;
   text-align: right;
   letter-spacing: 5px;
@@ -554,7 +553,7 @@ header nav ul li a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 70px 0;
+  padding: 40px 0 70px 0;
 }
 
 .comment .members {

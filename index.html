@@ -10,6 +10,8 @@
       rel="stylesheet"
     />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- TOPへ戻るボタン用JS -->
     <script type="text/javascript">
       $(function () {
         var pageTop = $(".page-top");
@@ -27,19 +29,34 @@
         });
       });
     </script>
+
+    <!-- ビデオ再生ボタン用JS -->
+    <script type="text/javascript">
+      const video = document.querySelector("#video");
+      const video_btn = document.querySelector("#video-btn");
+      let is_playing = false;
+      video_btn.addEventListener("click", () => {
+        if (!is_playing) {
+          video.play();
+          is_playing = true;
+        } else {
+          video.pause();
+          is_playing = false;
+        }
+      });
+    </script>
   </head>
   <body>
+    <!-- TOPへ戻るボタン用 -->
     <a href="#" class="page-top">▲</a>
 
     <!-- ファーストビュー -->
     <div class="firstview">
-      <!-- <div class="container"> -->
       <div class="firstview_title">
         <h2>
           <span>KAKUU NO BAND</span>
         </h2>
       </div>
-      <!-- </div> -->
     </div>
     <!-- ファーストビュー -->
 
@@ -58,192 +75,201 @@
     </header>
     <!-- ヘッダー -->
 
-    <div class="wrapper">
-      <!-- CD -->
-      <div class="cd" id="cd">
-        <div class="cd_img">
-          <img src="img/2618343_m.jpg" alt="ジャケット" />
-          <p><b>初回限定盤</b> 2,500円＋税　/　<b>通常盤</b> 2,000円＋税</p>
-        </div>
+    <!-- CD -->
+    <div class="cd" id="cd">
+      <div class="cd_img">
+        <img src="img/2618343_m.jpg" alt="ジャケット" />
+        <p><b>初回限定盤</b> 2,500円＋税　/　<b>通常盤</b> 2,000円＋税</p>
+      </div>
 
-        <div class="cd_content">
-          <div class="title tate">
-            <h2>1stシングル『◯◯◯』</h2>
+      <div class="cd_content">
+        <div class="title tate">
+          <h2>1stシングル『◯◯◯』</h2>
+        </div>
+        <ol>
+          <li>曲名曲名曲名</li>
+          <li>曲名曲名曲名</li>
+          <li>曲名曲名曲名</li>
+        </ol>
+        <p>
+          説明説明説明説明説明説明説明説明<br />
+          説明説明説明説明説明説明説明説明
+        </p>
+      </div>
+    </div>
+    <!-- CD -->
+
+    <!-- 特典 -->
+
+    <div class="tokuten" id="tokuten">
+      <div class="tokuten_naiyou ao">
+        <a href="" class="btn btn-border-shadow btn-border-shadow--color"
+          >特典1</a
+        >
+      </div>
+
+      <div class="tokuten_naiyou aka">
+        <a href="" class="btn btn-border-shadow btn-border-shadow--color"
+          >特典2</a
+        >
+      </div>
+
+      <div class="tokuten_naiyou ki">
+        <a href="" class="btn btn-border-shadow btn-border-shadow--color"
+          >特典3</a
+        >
+      </div>
+
+      <div class="tokuten_naiyou midori">
+        <a href="" class="btn btn-border-shadow btn-border-shadow--color"
+          >特典4</a
+        >
+      </div>
+    </div>
+    <!-- 特典 -->
+
+    <!-- MV -->
+    <div class="mv" id="mv">
+      <div class="title yoko"><h2>music video</h2></div>
+      <ul>
+        <li>
+          <div class="mv_video">
+            <video muted controls poster="img/4013181_s.jpg" id="video">
+              <source src="test.mp4" type="video/mp4" />
+            </video>
+            <div class="video-btn" id="video-btn"></div>
           </div>
-          <ol>
-            <li>曲名曲名曲名</li>
-            <li>曲名曲名曲名</li>
-            <li>曲名曲名曲名</li>
-          </ol>
-          <p>
-            説明説明説明説明説明説明説明説明<br />
-            説明説明説明説明説明説明説明説明
-          </p>
-        </div>
-      </div>
-      <!-- CD -->
 
-      <!-- 特典 -->
+          <div class="mv_content">
+            <h3>曲名1</h3>
+            <p>
+              説明説明説明説明説明説明説明説明説明説明説明説明<br />説明説明説明説明説明説明説明説明説明説明説明説明
+            </p>
+            <p class="card_number">#music video</p>
+          </div>
+        </li>
 
-      <div class="tokuten" id="tokuten">
-        <div class="tokuten_naiyou ao">
-          <a href="" class="btn btn-border-shadow btn-border-shadow--color"
-            >特典1</a
-          >
-        </div>
+        <li>
+          <div class="mv_video">
+            <video muted controls poster="img/4029809_s.jpg" id="video">
+              <source src="test.mp4" type="video/mp4" />
+            </video>
+            <div class="video-btn" id="video-btn"></div>
+          </div>
 
-        <div class="tokuten_naiyou aka">
-          <a href="" class="btn btn-border-shadow btn-border-shadow--color"
-            >特典2</a
-          >
-        </div>
+          <div class="mv_content">
+            <h3>曲名2</h3>
+            <p>
+              説明説明説明説明説明説明説明説明説明説明説明説明<br />説明説明説明説明説明説明説明説明説明説明説明説明
+            </p>
+            <p class="card_number">#live video</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- MV -->
 
-        <div class="tokuten_naiyou ki">
-          <a href="" class="btn btn-border-shadow btn-border-shadow--color"
-            >特典3</a
-          >
-        </div>
-
-        <div class="tokuten_naiyou midori">
-          <a href="" class="btn btn-border-shadow btn-border-shadow--color"
-            >特典4</a
-          >
-        </div>
-      </div>
-      <!-- 特典 -->
-
-      <!-- MV -->
-      <div class="mv" id="mv">
-        <div class="title yoko"><h2>YouTube</h2></div>
+    <!-- メンバーコメント-->
+    <div class="comment" id="comment">
+      <div class="title yoko"><h2>メンバーコメント</h2></div>
+      <div class="members">
         <ul>
           <li>
-            <img src="img/4013181_s.jpg" alt="" />
-            <div class="mv_content">
-              <h3>曲名1</h3>
+            <div class="photo">
+              <img src="img/3667498_m.jpg" alt="Photo" />
+              <p>Vo/Gt</p>
+            </div>
+            <div class="txt ao">
+              <h3>青山 青太 / Aota Aoyama</h3>
               <p>
-                説明説明説明説明説明説明説明説明説明説明説明説明<br />説明説明説明説明説明説明説明説明説明説明説明説明
+                コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文
               </p>
-              <p class="card_number">#music video</p>
             </div>
           </li>
 
           <li>
-            <img src="img/4029809_s.jpg" alt="" />
-            <div class="mv_content">
-              <h3>曲名2</h3>
+            <div class="photo">
+              <img src="img/080154591359.jpg" alt="Photo" />
+              <p>Gt</p>
+            </div>
+            <div class="txt aka">
+              <h3>赤石 赤男 / Akao Akaishi</h3>
               <p>
-                説明説明説明説明説明説明説明説明説明説明説明説明<br />説明説明説明説明説明説明説明説明説明説明説明説明
+                コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文
               </p>
-              <p class="card_number">#live video</p>
+            </div>
+          </li>
+          <li>
+            <div class="photo">
+              <img src="img/87361_s.jpg" alt="Photo" />
+              <p>Ba</p>
+            </div>
+            <div class="txt ki">
+              <h3>黄井 黄助 / Kisuke Kii</h3>
+              <p>
+                コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="photo">
+              <img src="img/301738_l.jpg" alt="Photo" />
+              <p>Dr</p>
+            </div>
+            <div class="txt midori">
+              <h3>緑谷 緑彦 / Midorihiko Midoriya</h3>
+              <p>
+                コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文
+              </p>
             </div>
           </li>
         </ul>
       </div>
-
-      <!-- MV -->
-
-      <!-- メンバーコメント-->
-      <div class="comment" id="comment">
-        <div class="title yoko"><h2>メンバーコメント</h2></div>
-        <div class="members">
-          <ul>
-            <li>
-              <div class="photo">
-                <img src="img/3667498_m.jpg" alt="Photo" />
-                <p>Vo/Gt</p>
-              </div>
-              <div class="txt ao">
-                <h3>青山 青太 / Aota Aoyama</h3>
-                <p>
-                  コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文
-                </p>
-              </div>
-            </li>
-
-            <li>
-              <div class="photo">
-                <img src="img/080154591359.jpg" alt="Photo" />
-                <p>Gt</p>
-              </div>
-              <div class="txt aka">
-                <h3>赤石 赤男 / Akao Akaishi</h3>
-                <p>
-                  コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文
-                </p>
-              </div>
-            </li>
-            <li>
-              <div class="photo">
-                <img src="img/87361_s.jpg" alt="Photo" />
-                <p>Ba</p>
-              </div>
-              <div class="txt ki">
-                <h3>黄井 黄助 / Kisuke Kii</h3>
-                <p>
-                  コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文
-                </p>
-              </div>
-            </li>
-            <li>
-              <div class="photo">
-                <img src="img/301738_l.jpg" alt="Photo" />
-                <p>Dr</p>
-              </div>
-              <div class="txt midori">
-                <h3>緑谷 緑彦 / Midorihiko Midoriya</h3>
-                <p>
-                  コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文コメント文
-                </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- メンバーコメント -->
-
-      <!-- 配信 -->
-      <div class="haisin">
-        <div class="haisin_site">
-          <h3>配信・ダウンロード</h3>
-          <table>
-            <tr>
-              <td><a href="">Spotify</a></td>
-              <td><a href="">Apple Music</a></td>
-            </tr>
-            <tr>
-              <td><a href="">iTunes Music</a></td>
-              <td><a href="">Amazon Music</a></td>
-            </tr>
-            <tr>
-              <td><a href="">YouTube Music</a></td>
-              <td><a href="">LINE Music</a></td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <!-- 配信 -->
-
-      <!-- 購入 -->
-      <div class="buy" id="buy">
-        <div class="buy-button">
-          <a href="" class="btn btn-border-shadow btn-border-shadow--color"
-            >初回限定盤の購入はこちら</a
-          >
-        </div>
-        <div class="buy-button">
-          <a href="" class="btn btn-border-shadow btn-border-shadow--color"
-            >通常盤の購入はこちら</a
-          >
-        </div>
-      </div>
-      <!-- 購入 -->
-
-      <!-- フッター -->
-      <footer>
-        <div class="container">
-          <p>KAKUU NO BAND © 2021. All Right Reserved,</p>
-        </div>
-      </footer>
     </div>
+    <!-- メンバーコメント -->
+
+    <!-- 配信 -->
+    <div class="haisin">
+      <div class="haisin_site">
+        <h3>配信・ダウンロード</h3>
+        <table>
+          <tr>
+            <td><a href="">Spotify</a></td>
+            <td><a href="">Apple Music</a></td>
+          </tr>
+          <tr>
+            <td><a href="">iTunes Music</a></td>
+            <td><a href="">Amazon Music</a></td>
+          </tr>
+          <tr>
+            <td><a href="">YouTube Music</a></td>
+            <td><a href="">LINE Music</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!-- 配信 -->
+
+    <!-- 購入 -->
+    <div class="buy" id="buy">
+      <div class="buy-button">
+        <a href="" class="btn btn-border-shadow btn-border-shadow--color"
+          >初回限定盤の購入はこちら</a
+        >
+      </div>
+      <div class="buy-button">
+        <a href="" class="btn btn-border-shadow btn-border-shadow--color"
+          >通常盤の購入はこちら</a
+        >
+      </div>
+    </div>
+    <!-- 購入 -->
+
+    <!-- フッター -->
+    <footer>
+      <div class="container">
+        <p>KAKUU NO BAND © 2021. All Right Reserved,</p>
+      </div>
+    </footer>
   </body>
 </html>
