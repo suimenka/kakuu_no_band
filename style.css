@@ -56,7 +56,9 @@ body .page-top {
 
 @media screen and (max-width: 599px) {
   .title.tate h2 {
-    margin: 0 20px;
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
   }
 }
 
@@ -84,40 +86,63 @@ body .page-top {
 /* ===ファーストビュー=== */
 .firstview {
   width: 100%;
-  height: 750px;
+  height: 70%;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.firstview:before {
+  content: "";
+  display: block;
+  padding-top: 70%;
+}
+
+.firstview .inner {
   background-image: url("img/2025892_m.jpg");
   background-size: cover;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.firstview .firstview_title {
+.firstview .inner .firstview_title {
   z-index: 30;
-  margin: auto;
 }
 
-.firstview .firstview_title h2 {
+.firstview .inner .firstview_title h2 {
   color: #ffffff;
   font-weight: normal;
 }
 
-.firstview .firstview_title span {
-  font-size: 60px;
+.firstview .inner .firstview_title span {
+  font-size: 6vw;
   font-weight: normal;
 }
 
 @media screen and (max-width: 599px) {
   .firstview {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    background-size: auto;
+    width: 100%;
+    height: 180%;
+  }
+  .firstview:before {
+    padding-top: 180%;
+  }
+  .firstview .inner {
     -o-object-fit: cover;
        object-fit: cover;
-  }
-  .firstview .firstview_title span {
-    font-size: 40px;
   }
 }
 
@@ -131,10 +156,11 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 20px;
+  height: 30px;
   position: -webkit-sticky;
   position: sticky;
+  /* 途中までスクロールして固定 */
   top: 0;
-  height: 30px;
   z-index: 20;
 }
 
@@ -182,6 +208,10 @@ header nav ul li {
   margin-left: 30px;
 }
 
+header nav ul li:first-child {
+  margin-left: 0;
+}
+
 header nav ul li:last-child {
   padding: 8px;
   border: 1px solid #fff;
@@ -218,6 +248,15 @@ header nav ul li a {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+  header nav ul li {
+    margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  header nav ul li {
+    text-align: center;
+  }
 }
 
 /* ===CD=== */
@@ -235,17 +274,27 @@ header nav ul li a {
 
 .cd .cd_img {
   width: 50%;
+  /*上下のpaddingと同じにする*/
+  height: 0;
+  padding-top: 50%;
+  /*widthと同じにする*/
+  position: relative;
+  overflow: hidden;
 }
 
 .cd .cd_img img {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .cd .cd_img p {
   margin: 0;
+  color: #000;
 }
 
 .cd .cd_content {
@@ -290,18 +339,14 @@ header nav ul li a {
     padding: 0 20px 20px 20px;
   }
   .cd .cd_img {
-    width: 100%;
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
-    text-align: center;
-  }
-  .cd .cd_img img {
-    width: 350px;
-    height: 350px;
+    width: 100%;
+    padding-top: 100%;
   }
   .cd .cd_content {
-    width: 100%;
+    width: auto;
     height: auto;
     margin: 70px 0 40px 0;
     -webkit-box-ordinal-group: 2;
@@ -331,7 +376,7 @@ header nav ul li a {
   margin-bottom: 70px;
 }
 
-.tokuten .tokuten_naiyou {
+.tokuten_naiyou {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -341,13 +386,13 @@ header nav ul li a {
   margin-right: 20px;
 }
 
-.tokuten .tokuten_naiyou:last-child {
+.tokuten_naiyou:last-child {
   margin-right: 0;
 }
 
-.tokuten .tokuten_naiyou .btn,
-.tokuten .tokuten_naiyou a.btn,
-.tokuten .tokuten_naiyou button.btn {
+.tokuten_naiyou .btn,
+.tokuten_naiyou a.btn,
+.tokuten_naiyou button.btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -376,12 +421,12 @@ header nav ul li a {
   cursor: default;
 }
 
-.tokuten .tokuten_naiyou a.btn-border-shadow {
+.tokuten_naiyou a.btn-border-shadow {
   padding: calc(1.5rem - 12px) 3rem 1.5rem;
   background: #fff;
 }
 
-.tokuten .tokuten_naiyou a.btn-border-shadow:before {
+.tokuten_naiyou a.btn-border-shadow:before {
   position: absolute;
   top: -6px;
   left: -6px;
@@ -394,21 +439,21 @@ header nav ul li a {
   border-radius: 0.5rem;
 }
 
-.tokuten .tokuten_naiyou a.btn-border-shadow:hover {
+.tokuten_naiyou a.btn-border-shadow:hover {
   padding: calc(1.5rem - 6px) 3rem;
 }
 
-.tokuten .tokuten_naiyou a.btn-border-shadow:hover:before {
+.tokuten_naiyou a.btn-border-shadow:hover:before {
   top: 0;
   left: 0;
 }
 
-.tokuten .tokuten_naiyou a.btn-border-shadow--color {
+.tokuten_naiyou a.btn-border-shadow--color {
   border-radius: 0;
   background: #dcdcdc;
 }
 
-.tokuten .tokuten_naiyou a.btn-border-shadow--color:before {
+.tokuten_naiyou a.btn-border-shadow--color:before {
   border-radius: 0;
 }
 
@@ -424,7 +469,7 @@ header nav ul li a {
             flex-direction: column;
     padding: 40px 0;
   }
-  .tokuten .tokuten_naiyou {
+  .tokuten_naiyou {
     width: 100%;
     margin-bottom: 20px;
     display: -webkit-box;
@@ -434,8 +479,28 @@ header nav ul li a {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .tokuten .tokuten_naiyou:last-child {
+  .tokuten_naiyou:last-child {
     margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .tokuten {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .tokuten .tokuten_naiyou.aka {
+    margin-right: 0;
+  }
+  .tokuten .tokuten_naiyou.ki,
+  .tokuten .tokuten_naiyou.midori {
+    margin-top: 20px;
+  }
+  .tokuten .spacer {
+    width: 100%;
   }
 }
 
@@ -711,7 +776,7 @@ header nav ul li a {
   background-color: #f9f9f9;
 }
 
-.haisin .haisin_site {
+.haisin_site {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -722,29 +787,29 @@ header nav ul li a {
   text-align: center;
 }
 
-.haisin .haisin_site h3 {
+.haisin_site h3 {
   margin-top: 0;
   font-size: 25px;
 }
 
-.haisin .haisin_site table {
+.haisin_site table {
   width: 500px;
   font-size: 20px;
   line-height: 30px;
   border-collapse: collapse;
 }
 
-.haisin .haisin_site table td {
+.haisin_site table td {
   width: 50%;
   text-align: center;
 }
 
-.haisin .haisin_site table td a {
+.haisin_site table td a {
   text-decoration: none;
   color: #000;
 }
 
-.haisin .haisin_site table td a:hover {
+.haisin_site table td a:hover {
   border-bottom: 2px dashed #000;
 }
 
@@ -768,7 +833,7 @@ header nav ul li a {
   font-size: 30px;
 }
 
-.buy .buy-button {
+.buy-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -777,13 +842,13 @@ header nav ul li a {
           justify-content: center;
 }
 
-.buy .buy-button:first-child {
+.buy-button:first-child {
   margin-bottom: 20px;
 }
 
-.buy .buy-button .btn,
-.buy .buy-button a.btn,
-.buy .buy-button button.btn {
+.buy-button .btn,
+.buy-button a.btn,
+.buy-button button.btn {
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 1.5;
@@ -806,12 +871,12 @@ header nav ul li a {
   border-radius: 0.5rem;
 }
 
-.buy .buy-button a.btn-border-shadow {
+.buy-button a.btn-border-shadow {
   padding: calc(1.5rem - 12px) 3rem 1.5rem;
   background: #fff;
 }
 
-.buy .buy-button a.btn-border-shadow:before {
+.buy-button a.btn-border-shadow:before {
   position: absolute;
   top: -6px;
   left: -6px;
@@ -824,21 +889,21 @@ header nav ul li a {
   border-radius: 0.5rem;
 }
 
-.buy .buy-button a.btn-border-shadow:hover {
+.buy-button a.btn-border-shadow:hover {
   padding: calc(1.5rem - 6px) 3rem;
 }
 
-.buy .buy-button a.btn-border-shadow:hover:before {
+.buy-button a.btn-border-shadow:hover:before {
   top: 0;
   left: 0;
 }
 
-.buy .buy-button a.btn-border-shadow--color {
+.buy-button a.btn-border-shadow--color {
   border-radius: 0;
   background: gold;
 }
 
-.buy .buy-button a.btn-border-shadow--color:before {
+.buy-button a.btn-border-shadow--color:before {
   border-radius: 0;
 }
 
@@ -847,9 +912,9 @@ header nav ul li a {
     padding: 40px 0;
     width: auto;
   }
-  .buy .buy-button .btn,
-  .buy .buy-button a.btn,
-  .buy .buy-button button.btn {
+  .buy-button .btn,
+  .buy-button a.btn,
+  .buy-button button.btn {
     width: 50%;
     font-size: 20px;
   }
